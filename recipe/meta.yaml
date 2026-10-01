@@ -12,7 +12,7 @@ source:
 build:
   number: 3
   skip: true  # [win or python_impl == 'pypy']
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -26,6 +26,7 @@ requirements:
     - python
     - fftw
     - numpy
+    - setuptools
   run:
     - python
     - {{ pin_compatible('numpy') }}
